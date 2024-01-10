@@ -3,6 +3,9 @@ package com.cooksys.ftd.assignments.objects;
 import com.cooksys.ftd.assignments.objects.util.MissingImplementationException;
 
 public class Rational implements IRational {
+	
+	private int numerator;
+	private int denominator;
     /**
      * Constructor for rational values of the type:
      * <p>
@@ -15,7 +18,11 @@ public class Rational implements IRational {
      * @throws IllegalArgumentException if the given denominator is 0
      */
     public Rational(int numerator, int denominator) throws IllegalArgumentException {
-        throw new MissingImplementationException();
+    	if(denominator == 0){
+    		throw new IllegalArgumentException();
+    	}
+    	this.numerator = numerator;
+    	this.denominator = denominator;
     }
 
     /**
@@ -23,7 +30,7 @@ public class Rational implements IRational {
      */
     @Override
     public int getNumerator() {
-        throw new MissingImplementationException();
+    	return numerator;
     }
 
     /**
@@ -31,7 +38,7 @@ public class Rational implements IRational {
      */
     @Override
     public int getDenominator() {
-        throw new MissingImplementationException();
+        return denominator;
     }
 
     /**
@@ -47,7 +54,10 @@ public class Rational implements IRational {
      */
     @Override
     public Rational construct(int numerator, int denominator) throws IllegalArgumentException {
-        throw new MissingImplementationException();
+    	if(denominator == 0){
+    		throw new IllegalArgumentException();
+    	}
+    	return new Rational(numerator, denominator);
     }
 
     /**
@@ -58,7 +68,11 @@ public class Rational implements IRational {
      */
     @Override
     public boolean equals(Object obj) {
-        throw new MissingImplementationException();
+//    	if(obj instanceof Rational && obj.getNumerator()== this.getNumerator()&&obj.getDenominator() == this.getDenominator()){
+//    		return false;
+//    	}
+//    	return true;
+    	throw new MissingImplementationException();
     }
 
     /**
@@ -70,6 +84,12 @@ public class Rational implements IRational {
      */
     @Override
     public String toString() {
-        throw new MissingImplementationException();
+    	String stringer = "";
+    	if((this.getNumerator() < 0 != this.getDenominator() < 0)) {
+    		stringer = "-";
+    	}
+    	System.out.println(stringer + Math.abs(getNumerator()) + "/" + Math.abs(getDenominator()));
+    	return stringer + Math.abs(getNumerator()) + "/" + Math.abs(getDenominator());
+    	
     }
 }
