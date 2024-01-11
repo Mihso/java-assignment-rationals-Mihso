@@ -59,7 +59,6 @@ public class Rational implements IRational {
     	}
     	return new Rational(numerator, denominator);
     }
-
     /**
      * @param obj the object to check this against for equality
      * @return true if the given obj is a rational value and its
@@ -68,11 +67,13 @@ public class Rational implements IRational {
      */
     @Override
     public boolean equals(Object obj) {
-//    	if(obj instanceof Rational && obj.getNumerator()== this.getNumerator()&&obj.getDenominator() == this.getDenominator()){
-//    		return false;
-//    	}
-//    	return true;
-    	throw new MissingImplementationException();
+    	if(obj instanceof Rational){
+    		Rational temp = (Rational) obj;
+    		if(temp.getNumerator() == this.getNumerator()&& temp.getDenominator() == this.getDenominator()) {
+    			return true;
+    		}
+    	}
+    	return false;
     }
 
     /**
@@ -88,7 +89,6 @@ public class Rational implements IRational {
     	if((this.getNumerator() < 0 != this.getDenominator() < 0)) {
     		stringer = "-";
     	}
-    	System.out.println(stringer + Math.abs(getNumerator()) + "/" + Math.abs(getDenominator()));
     	return stringer + Math.abs(getNumerator()) + "/" + Math.abs(getDenominator());
     	
     }
